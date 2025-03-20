@@ -4,21 +4,22 @@ using namespace std;
 #include <vector>
 #include <list>
 #include <stack>
+#include <queue>
 class Grafo
 
 {
 private:
 	int numVertices;
-	vector<list<int>> listaAdj;
-	void DFS_CON_PILA(int inicio);
-	void DFS_Recursivo(int inicio, std::vector<bool>& visitado, bool esPrimerVertice);
-
+	vector<list<char>> listaAdj;
+	void DFS_CON_PILA(char inicio);
+	void DFS_Recursivo(char inicio, std::vector<bool>& visitado, bool esPrimerVertice);
+	void DFS_ciclos(char inicio, vector<bool>&visitado, queue<char>&visitados);
 public:
 	Grafo(int numVertices);
-	void añadirArista(int origen, int destino); //Agrega una arista dirigida de origen->destino
+	void añadirArista(char origen, char destino); //Agrega una arista dirigida de origen->destino
 	void mostrarGrafo();
-	void DFS(int inicio, int tipo);
-
+	void DFS(char inicio, int tipo);
+	void encontrarCiclos();
 	
 };
 
